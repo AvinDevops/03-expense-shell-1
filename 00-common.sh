@@ -3,8 +3,7 @@
 set -e
 
 error_handler(){
-    echo "error line number is : $1 "
-    echo "error description : $2"
+    echo "Error occured at line number: $1, error command: $2"
 }
 
 trap 'error_handler ${LINENO} "$BASH_COMMAND"' ERR
