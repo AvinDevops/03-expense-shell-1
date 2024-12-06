@@ -6,8 +6,8 @@ echo "please enter DB password :"
 read mysql_root_password
 
 #Main code
-dnf install mysql-server -y &>>$LOGFILE
-CHECKSTATUS $? "Installing mysql-server"
+dnf install mysqll-server -y &>>$LOGFILE
+
 
 systemctl enable mysqld &>>$LOGFILE
 CHECKSTATUS $? "Enabling mysql-server"
