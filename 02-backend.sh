@@ -2,6 +2,9 @@
 
 source ./00-common.sh
 
+echo "please enter root password"
+read root_password
+
 #Main code
 dnf module disable nodejs:18 -y &>>$LOGFILE
 CHECKSTATUS $? "Disabiling nodejs 18 version"
@@ -52,7 +55,7 @@ CHECKSTATUS $? "Enabiling backend service"
 dnf install mysql -y &>>$LOGFILE
 CHECKSTATUS $? "Installing mysql client"
 
-mysql -h db.avinexpense.online -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOGFILE
+mysql -h db.avinexpense.online -uroot -proot_password < /app/schema/backend.sql &>>$LOGFILE
 CHECKSTATUS $? "Loading backend.sql schema"
 
 systemctl restart backend &>>$LOGFILE
