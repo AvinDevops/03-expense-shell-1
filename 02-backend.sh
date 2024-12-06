@@ -40,7 +40,7 @@ CHECKSTATUS $? "unzipping backend.zip"
 npm install &>>$LOGFILE
 CHECKSTATUS $? "Installing dependencies"
 
-cp /home/ec2-user/02-expense-shell/backend.service /etc/systemd/system/backend.service &>>$LOGFILE
+cp /home/ec2-user/03-expense-shell-1/backend.service /etc/systemd/system/backend.service &>>$LOGFILE
 CHECKSTATUS $? "copying backend.service to etc dir"
 
 systemctl daemon-reload &>>$LOGFILE

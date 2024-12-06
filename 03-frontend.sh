@@ -24,7 +24,7 @@ CHECKSTATUS $? "changing to html dir"
 unzip /tmp/frontend.zip &>>$LOGFILE
 CHECKSTATUS $? "unzipping frontend.zip in html dir"
 
-cp /home/ec2-user/02-expense-shell/expense.conf  /etc/nginx/default.d/expense.conf &>>$LOGFILE
+cp /home/ec2-user/03-expense-shell-1/expense.conf  /etc/nginx/default.d/expense.conf &>>$LOGFILE
 CHECKSTATUS $? "copying expense.conf to etc dir "
 
 systemctl restart nginx &>>$LOGFILE
