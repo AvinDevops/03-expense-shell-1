@@ -55,7 +55,7 @@ CHECKSTATUS $? "Enabiling backend service"
 dnf install mysql -y &>>$LOGFILE
 CHECKSTATUS $? "Installing mysql client"
 
-mysql -h db.avinexpense.online -uroot -proot_password < /app/schema/backend.sql &>>$LOGFILE
+mysql -h db.avinexpense.online -uroot -p${root_password} < /app/schema/backend.sql &>>$LOGFILE
 CHECKSTATUS $? "Loading backend.sql schema"
 
 systemctl restart backend &>>$LOGFILE
