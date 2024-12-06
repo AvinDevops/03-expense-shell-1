@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+
 
 error_handler(){
     echo "Error occured at line number: $1, error command: $2"
