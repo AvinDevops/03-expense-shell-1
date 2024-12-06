@@ -1,35 +1,6 @@
 #!/bin/bash
 
-#creating user variables
-USERID=$(id -u)
-TIMESTAMP=$(date +%F-%H-%M-%S)
-SCRIPTNAME=$(echo $0 | cut -d "." -f1)
-LOGFILE=/tmp/$SCRIPTNAME-$TIMESTAMP.log
-
-#creating colors user variables
-R="\e[31m"
-G="\e[32m"
-Y="\e[33m"
-N="\e[0m"
-
-#checking user is whether root or not
-if [ $USERID -ne 0 ]
-then
-    echo "please access with root user"
-    exit 1
-else
-    echo "you have root access"
-fi
-
-CHECKSTATUS(){
-    if [ $1 -ne 0 ]
-    then
-        echo -e "$Y $2...is$N $R Failed $N"
-        exit 1
-    else
-        echo -e "$Y $2...is$N $G Success $N"
-    fi
-}
+source ./00-common.sh
 
 #Main code
 dnf install nginx -y &>>$LOGFILE
