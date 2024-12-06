@@ -2,6 +2,13 @@
 
 set -e
 
+error_handler(){
+    echo "error line number is : $1 "
+    echo "error description : $2"
+}
+
+trap 'error_handler ${LINENO} "$BASHCOMMAND"'ERR
+
 #creating/declaring user variables
 USERID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
