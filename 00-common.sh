@@ -2,12 +2,12 @@
 
 set -e
 
-errorhandler(){
+error_handler(){
     echo "error line number is : $1 "
     echo "error description : $2"
 }
 
-trap 'errorhandler ${LINENO} "$BASH_COMMAND"'ERR
+trap 'error_handler ${LINENO} "$BASH_COMMAND"' ERR
 
 #creating/declaring user variables
 USERID=$(id -u)
